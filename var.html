@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트2. 변수</title>
+</head>
+<body>
+    <script>
+        // 변수명 중복 불가(생성 시)
+        // 변수는 한번에 한가지 값만 담기 가능
+        // 변수 선언 키워드 var, let, const
+        // var == vanilaJS 오래된 변수 선언 키워드
+        // let, const == ES5 2015년 이후 변수키워드
+        let a = 1;
+        console.log(a)
+        let b = 2;
+        console.log(b)
+        // var의 문제점 : 중복의 문제점을 사용자한테 알려주지않음.
+        // let 변수중복에러를 체크할 수 있다.
+        /* let이 들어가면 생성한다는 말. */let c = 10;
+        console.log(c)
+        /* 기존 C의 값을 다른 대입값으로 변경한다. */c = 11;
+        let year = 2023
+        document.write(year+'년도')
+        year = 2024
+        document.write(year+'년도')
+    </script>
+    
+</body>
+</html>

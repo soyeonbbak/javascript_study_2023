@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단 [2단]</title>
+</head>
+<body>
+    <h1>구구단을 외자</h1>
+    <div class="dan2">
+        <input type="text" id="dan2" value="2" readonly>X
+        <input type="text" id="calc"> =
+        <input type="text" id="result" readonly>
+    </div>
+    <button type="button" class="btn">확인하기</button>
+    <!--2. **dan2(변수이름)변수활용 구구단 2단을 화면에 출력해보세요 결과 예) 2X1=2**
+
+**결과주소) http://아이디.dothome.co.kr/task/js/dan99.html** -->
+<script>
+    const dan2 = document.querySelector('#dan2')//2단 고정 input
+    const calc = document.querySelector('#calc')//계산식
+    const result = document.querySelector('#result')//결과 출력 input
+    const btn = document.querySelector('.btn')
+    console.log(dan2, calc, result)
+    console.log(typeof(dan2.value), typeof(calc.value))
+    console.log(`2*2${'2'*'2'}, 2+2${'2'+'2'}`)
+    // 연산자 좌우 피 연선자가 문제데이터일 경우 
+    // 더하기연산자(+)라면, 문자+문자=문자로 연결결과를 보여준다.
+    // 나머지 연산자(-,*,/,%) >> 문자를 암시적형변환으로 자동으로
+    //숫자 데이터로 변경해서 문자*문자=숫자 결과로 보여준다.
+    btn.addEventListener('click',function(){
+        let first = Number(dan2.value)
+        let last = Number(calc.value)
+        console.log(first,last, first*last)
+        result.value = first*last
+    })
+
+</script>
+</body>
+</html>

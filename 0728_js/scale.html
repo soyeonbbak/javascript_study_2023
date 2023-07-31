@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>적정체중 알아보기</title>
+    <link rel="stylesheet" href="./style/reset.css">
+    <link rel="stylesheet" href="./style/scale.css">
+</head>
+<body>
+    <div class="n_w">
+        <h1>표준체중을 구해보세요.</h1>
+        <h2>표준체중 구하기</h2>
+        <form action="#" method="post">
+            <fieldset>
+                <legend class="skip">표준체중 구하기</legend>
+                <input type="text" id="height" placeholder="키를 입력하세요.">
+                <input type="text" id="weight" placeholder="몸무게를 입력하세요.">
+            </fieldset>
+        </form>
+        <p></p>
+        <button type="button" id="btn">결과 확인</button>
+        <button type="button" id="n_btn">다시 입력</button>
+    </div>
+    <!-- 1. **적정체중을 구하는 테스트기를 만들어보세요**
+
+**적정체중 = (본인신장-100)*0.9**
+
+**userHeight, userWeight, normal_w 변수 활용 아래와 같은 메시지 출력하기**
+
+**결과예시) 적정체중은 ?kg이며 ?kg 초과되셨습니다.**
+
+**결과주소) http://아이디.dothome.co.kr/task/js/scale.html** -->
+    <script>
+        let userHeight = 160;
+        let userWeight = 60;
+        let normal_w = (userHeight-100)*0.9;
+        const a = null;
+        const btn = document.querySelector('#btn')
+        const nBtn = document.querySelector('#n_btn')
+        const userheight = document.querySelector('#height')
+        const userweight = document.querySelector('#weight')
+        const p = document.querySelector('p')
+        console.log(userHeight,userWeight,normal_w,p)
+        btn.addEventListener('click',function(){
+            p.innerHTML=`적정체중은 ${normal_w}kg이며 ${userWeight-normal_w}kg 초과되셨습니다.`
+        })
+        nBtn.addEventListener('click',function(){
+            userheight.value=a
+            userweight.value=a
+            p.value=a
+        })
+    </script>
+</body>
+</html>
