@@ -1,10 +1,13 @@
 body {
     text-align: center;
     width: 500px; width: 600px;
-    margin: 200px auto;
+    margin: 0 auto;
+}
+.title {
+    padding: 100px 0;
 }
 h1 {
-    font-weight: 700;
+    font-weight: ;
 }
 
 .dan2 {}
