@@ -1,0 +1,130 @@
+main {
+    width: 1200px; margin: 0 auto;
+    background: skyblue;
+}
+/* 공통제목 CSS */
+main section {
+    background: yellow;
+    text-align: center;
+}
+main section .category {
+    background: yellowgreen;
+    font-size: 1.333em;
+    
+}
+main section .category::after {
+    display: block;
+    width: 20px; content: '';
+    margin: 10px auto 0;
+    border-bottom: 2px solid gray;
+    }
+main section h1{
+    background: plum;
+    margin: 30px 0;
+    font-size: 2em;
+}
+main section .contents {
+    background: gray;
+    font-weight: 500; color: #c1c1c1;
+    margin-bottom: 30px;
+}
+/* 카 히스토리 영상 */
+/* 카 히스토리 영상 - 탭 제목, 내용 */
+main #video .tab_title {
+    display: flex;
+    justify-content: center;
+}
+main #video .tab_title a {
+    padding: 10px 25px;
+    display: inline-block;
+    background: rebeccapurple;
+}
+main #video .tab_title .active{
+    border-bottom: 5px solid rgb(0, 183, 255);
+}
+/* main #video .tab_title .active::after{
+    display: block; border-bottom: 5px solid rgb(0, 162, 255);
+    content: '';
+    width: 60px;
+} */
+main #video .tab_contents {}
+main #video .tab_contents .tab_c1  {
+    position: relative;
+}
+main #video .tab_contents .tab_c1 video {
+    width: 80%; margin: 0 auto;
+}
+main #video .tab_contents .tab_c1 img  {
+    position: absolute; right:3%; top: 45%;
+    width: 200px;
+}
+main #video .tab_contents .tab_c2  {}
+main #video .tab_contents .tab_c2 img {
+    width: 80%;
+}
+main #video .tab_contents .active  {}
+/* 메뉴 탭 */
+main #menu .tab_title{
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #888;
+}
+main #menu .tab_title a{
+    
+    width: 150px; padding: 20px 0;
+    position: relative; bottom: -1px;
+    margin-right: 10px; border:1px solid #ccc ;
+    background: #fff; border-bottom:1px solid #888 ;
+}
+main #menu .tab_title a:last-child{margin-right: 0;}
+main #menu .tab_title a.active{
+    border: 1px solid #888;
+    border-bottom: 1px solid #fff ;
+    border-top: 2px solid #2439f0;
+}
+main #menu .tab_title a{}
+main #manu .tab_contents {}
+main #menu .tab_contents .tab_c1{
+    display: flex; text-align: left;
+    padding-top: 50px;
+}
+main #menu .tab_contents .tab_c1 .left {width: 50%;}
+main #menu .tab_contents .tab_c1 .left h2{font-size: 2em; color: rgb(0, 183, 255);
+}
+main #menu .tab_contents .tab_c1 .left p{padding-top:30px ; line-height: 1.5em;}
+main #menu .tab_contents .tab_c1 .left p img{width: 95%;}
+main #menu .tab_contents .tab_c1 .left p em{}
+/* -------right-------- */
+main #menu .tab_contents .tab_c1 .right{width: 50%;}
+main #menu .tab_contents .tab_c1 .right h3 {font-size: 1.5em; font-weight: 300;}
+main #menu .tab_contents .tab_c1 .right ul {
+}
+main #menu .tab_contents .tab_c1 .right ul li {
+    display: flex; border-bottom: 1px dashed #888; padding: 20px 0 10px;
+}
+main #menu .tab_contents .tab_c1 .right ul li:last-child {border: 0;}
+main #menu .tab_contents .tab_c1 .right ul li img {}
+main #menu .tab_contents .tab_c1 .right ul li em {
+    color: rgb(0, 183, 255); font-weight: 700;
+}
+main #menu .tab_contents .tab_c1 .right ul li p {}
+/* ------------------------------------------------------ */
+
+
+main #menu .tab_contents .tab_c1 .right .right1 {}
+main #menu .tab_contents .tab_c1 .right .right1 li {}
+main #menu .tab_contents .tab_c1 .right .right1 li img {}
+main #menu .tab_contents .tab_c1 .right .right1 li em {}
+main #menu .tab_contents .tab_c1 .right .right1 li p {}
+main #menu .tab_contents .tab_c1 .right .right1 li p span {}
+main #menu .tab_contents .tab_c1 .right .right2 li {}
+main #menu .tab_contents .tab_c1 .right .right2 li img {}
+main #menu .tab_contents .tab_c1 .right .right2 li em {}
+main #menu .tab_contents .tab_c1 .right .right2 li p {}
+main #menu .tab_contents .tab_c1 .right .right3 li {}
+main #menu .tab_contents .tab_c1 .right .right3 li img {}
+main #menu .tab_contents .tab_c1 .right .right3 li em {}
+main #menu .tab_contents .tab_c1 .right .right3 li p {}
+main #menu .tab_contents .tab_c2 {}
+main #menu .tab_contents .tab_c3 {}
+main #menu .tab_contents .tab_c4 {}
