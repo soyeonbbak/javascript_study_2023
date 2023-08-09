@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>day11_class</title>
+    <style>
+        /* 2개 이상의 속성을 가진 class준비(js적용) */
+        .design1{
+            background-color: blue; width: 300px;
+            font-size: 2rem;
+        }
+        .design2{background-color: aqua;}
+        .display{display: none;}
+        .replace {transform: rotate(10deg); font-size: 3rem;}
+    </style>
+</head>
+<body>
+    <!-- js 제어버튼 type은 항상 button(범용기능) 설정해야한다. -->
+    <button id="btn" type="button">적용</button>
+    <button id="reset" type="button">해제</button>
+    <button id="toggle" type="button">ONOFF</button>
+    <button id="replace" type="button">교체</button>
+    <div>변경대상</div>
+    <script>
+        // *******className보다 classList를 주로 사용한다.********
+        const btn = document.querySelector('#btn')
+        const reset = document.querySelector('#reset')
+        const target = document.querySelector('div')
+        const toggle = document.querySelector('#toggle')
+        const replace = document.querySelector('#replace')
+        console.log(btn,reset, target,toggle, replace)
+        toggle.addEventListener('click',function(){
+            target.classList.toggle('display') //> toggle onoff기능을 한다.
+        })
+        replace.addEventListener('click',function(){
+            target.classList.replace('design2','replace') //--> design2를 replace값으로 변경한다.
+        })
+        // 연습문제
+        // btn 클릭 시 targer 배경색 - 노랑
+        // btn 클릭 시 target 글자색 - 파랑
+        // btn 클릭 시 target 글자크기 - 2rem
+        btn.addEventListener('click',function(){
+            // 대상에 style속성 사용하는 경우 = 속성이 한두개일 경우에만 사용함.
+            /* target.style.backgroundColor='yellow'
+            target.style.color = 'blue'
+            target.style.fontSize ='2rem' */
+            // 대상에 class속성 사용하는 경우 = 속성이 3개 이상일 경우에 사용함
+            // 준비사항 : 내부 또는 외부 스타일시트에 class준비가 필요하다. 내가원하는 속성이 들어있는 class
+            /* target.className = 'design1'
+            target.className += ' design2' */
+            // ----------------------------------------
+            //add 메소드
+            // 복합대입이나 공백 표시를 넣지 않아도 클래스를 편하게 추가할 수 있다.
+            target.classList.add('design1')
+            target.classList.add('design2')
+        })
+        // reset클릭시 클래스 제거하기
+        reset.addEventListener('click',function(){
+            target.classList.remove('design1','design2')
+            // target.classList.remove('design2')
+        })
+        // ONOFF클릭 시
+    </script>
+</body>
+</html>
