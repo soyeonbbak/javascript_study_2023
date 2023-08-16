@@ -132,6 +132,11 @@
         videoTabTitle.forEach(function(target, index, array){
             target.addEventListener('click',function(e){
                 e.preventDefault()
+                // 8월9일 추가 class active 호출용
+                // DOM.classList.remove('제거클래스명')
+                for(let i of videoTabTitle){i.classList.remove('active')}
+                // DOM.classList.add('적용클래스명')
+                target.classList.add('active')
                  //클릭이벤트 안에서는 이벤트 대상의 인덱스만 인식한다.
                 console.log(index)
                 // 클릭한 객체 인덱스와 동일한 인덱스의 다른 요소 체크!
@@ -161,6 +166,8 @@
         menuTabTitle.forEach(function(t,index,a){ //< 타이틀(a = 제목태그) 클릭시.
             t.addEventListener('click',function(e){
                 e.preventDefault()
+                for(let i of menuTabTitle){i.classList.remove('active')}
+                t.classList.add('active')
                 for(let i of menuTabContents){i.style.display='none'}
                 menuTabContents[index].style.display = 'flex'
                 console.log(t,index)

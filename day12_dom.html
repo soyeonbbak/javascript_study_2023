@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="box1">
+        <div id="box2">
+            <p class="p">1</p>
+            <p class="p">2</p>
+            <p class="p">3</p>
+        </div>
+    </div>
+    <script>
+        //변수생성
+        const box1 = document.querySelector('#box1')
+        const box2 = document.querySelector('#box2')
+        const p = document.querySelectorAll('.p')
+        console.log(p, box1, box2)
+        //DOM 제어
+        //1.  DOM 생성 createElement()
+        const span = document.createElement('span')
+        span.innerHTML = '안녕하세요~ 적당히 바람이 시원해 기분이 너무 좋아요 유후'
+        console.log(span)
+        p[2].appendChild(span)
+        //2. DOM 부모선택법 => tag : 자식.parentNode
+        console.log(p[0].parentNode) // => box2
+        // 부모선택자 ex) main > p > span {} --> css작성시
+        console.log(p[0].parentNode.parentNode) // => box1 == p[0]의 부모의 부모를 선택했기 때문에.
+        p[0].parentNode.style.backgroundColor = 'red' //p[0]의.부모.꾸미기.백그라운드컬러 = 레드
+        // 3. DOM 형제선택법
+        // 이전형제 >> 기준대상.previousElementSibling
+        // 다음형제 >> 기준대상.nextElementSibling
+        console.log(p[1].previousElementSibling) //p1 = p[1](두번째 p)를 기준으로 이전 형제
+        console.log(p[1].nextElementSibling) //p3 = p[1](두번째 p)를 기준으로 다음 형제
+        console.log(p[0].nextElementSibling.nextElementSibling) // p3 = p[0](첫번째 p)를 기준으로 다다음 형제
+        p[0].nextElementSibling.style.color = 'pink'
+        p[1].nextElementSibling.style.fontWeight = '700'
+        // 4. DOM 자식선택법
+        // 부모.childNodes = 공백 포함 자식 선택방법
+        // 부모.children = 요소만 인식
+        // 부모.firstChilde = 첫번째 자식 인식 ( 공백포함 )
+        // 부모.firstElemetChild = 첫번째 자식 인식 ( 공백X )
+        // 부모.lastChild = 마지막 자식 인식 ( 공백포함 )
+        // 부모.lastElementChild = 마지막 자식 인식 ( 공백X )
+        console.log(box2.childNodes)
+        console.log(box2.children)
+        console.log(box2.firstElementChild) //p1
+        console.log(box2.lastElementChild) //p3
+        box2.firstElementChild.style.backgroundColor = 'cyan'
+        box2.lastElementChild.style.borderTop = '1px solid black'
+        // children 모든 자식 p한테 글자 크기 2rem
+        //box2.children.style.fontSize = '2rem' // querySelectorAll을 사용할 땐 인덱스값이 붙어야하기 때문에 두개 이상을 동시에 잡아 오류가 난다.
+        for(let i of box2.children){
+            i.style.fontSize = '2rem'
+        }
+    </script>
+</body>
+</html>
