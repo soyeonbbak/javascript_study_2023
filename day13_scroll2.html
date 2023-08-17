@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>day13_scroll_1</title>
+    <style>
+        body, html {
+            height: 300vh;
+            background: linear-gradient(red, orange, yellow, green);
+            /* 스크롤 제어 애니메이션 CSS (body 선택자에 사용한다.) */
+            scroll-behavior: smooth;
+        }
+        #pst {
+            position: fixed; left: 50px; top: 50px;
+            background:#eee; padding:50px;
+        }
+        #container section {
+            height: 100vh; text-align: center;
+            border: 2px solid #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="pst">
+        <button class="tab" type="button">상품정보</button>
+        <button class="tab" type="button">리뷰</button>
+        <button class="tab" type="button">질문답변</button>
+    </div>
+    <div id="container">
+        <section><h1>상품정보</h1></section>
+        <section><h1>리뷰</h1></section>
+        <section><h1>질문답변</h1></section>
+    </div>
+    <script>
+        // 자바스크립트의 스크롤 제어 == 우측 하단 top버튼에 많이 쓰임. scrollTo(0,0) 설정
+        const tabBtn = document.querySelectorAll('.tab')
+        const section = document.querySelectorAll('section')
+        console.log(tabBtn, section)
+/*         tabBtn[1].addEventListener('click',function(){
+            window.scrollTo(0,section[1].offsetTop)
+        }) */
+        tabBtn.forEach(function(t,index,a){
+            console.log(section)
+            t.addEventListener('click',function(){
+                window.scrollTo(0,section[index].offsetTop)
+            })
+        })
+    </script>
+</body>
+</html>

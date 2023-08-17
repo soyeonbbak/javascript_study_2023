@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>day13.scroll4</title>
+    <link rel="stylesheet" href="./style/reset.css">
+    <style>
+        header {
+            position:fixed;
+        }
+        header h1 {
+            padding:35px 25px;
+            font-weight: 700; font-size: 1.8em;
+        }
+        header nav{
+            padding-left:30px;
+            letter-spacing: 10px;
+        }
+        header nav a{}
+        aside {
+            display: flex; flex-flow: column nowrap;
+            justify-content: space-between;
+            position: fixed; top:50%;
+        }
+        aside .bar {
+            width: 15px; 
+            border-top: 1px solid black;
+            padding: 5px 0;
+            
+        }
+        aside .active {
+            width: 80px; border-top: 1px solid #fff;
+        }
+        main {}
+        main .bg {
+            height: 100vh; background-size: cover;
+            background-position: center;
+        }
+        main .bg1 {
+            background: url(./image/bg1.jpg);
+        }
+        main .bg2 {
+            background: url(./image/bg2.jpg);
+        }
+        main .bg3 {
+            background: url(./image/bg3.jpg);
+        }
+        main .bg4 {
+            background: url(./image/bg4.jpg);
+        }
+        #mouse {
+            width: 50px; height: 50px;
+            border: 2px solid pink;
+            border-radius: 50%;
+            /* 화면 최상단 스크롤 상관없이 고정되며 마우스 따라가는 CSS */
+            position: fixed; left: 0; top: 0; z-index: 999;
+            transform: translate(-50%,-50%); /* 마우스 중심으로 따라오게 만드는 값 */
+            transition: all 0.2s;/* 0.2초 뒤늦게 따라오는 애니메이션 기능 추가 */
+            /* 필수속성 : 마우스 따라다니는 이미지 만들 경우 */
+            /* (위)이미지에 의해서 링크, 버튼 등 선택이 안되는 문제 해결방법 */
+            pointer-events: none; /* 마우스 포인터에 들어가는 이벤트 속성을 없애는 명령어 */
+        }
+    </style>
+</head>
+<body>
+    <div id="mouse"></div>
+    <header>
+        <h1>Interior View</h1>
+        <nav>
+            <a href="#">A</a>
+            <a href="#">B</a>
+            <a href="#">C</a>
+            <a href="#">D</a>
+        </nav>
+    </header>
+    <aside>
+        <span class="bar active"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </aside>
+    <main>
+        <div class="bg bg1"></div>
+        <div class="bg bg2"></div>
+        <div class="bg bg3"></div>
+        <div class="bg bg4"></div>
+    </main>
+    <script>
+        const aTag = document.querySelectorAll('a')
+        const bar = document.querySelectorAll('.bar')
+        const bg = document.querySelectorAll('.bg')
+        console.log(aTag,bar,bg)
+        // if(window.pageYOffset > bg.offsetYTop)
+            // aTag.forEach(function(t,i,a){
+            //     t.addEventListener('click',function(){
+            //         window.scrollTo(0,bg[i].offsetTop)
+            //     })
+            // })
+            aTag.forEach(function(t,index,a){
+                t.addEventListener('click',function(e){
+                    e.preventDefault()
+                    window.scrollTo(0,bg[index].offsetTop)
+                })
+            })
+            const body = document.querySelector('body,html')
+            window.addEventListener('scroll',function(){
+                // console.log('body.scrollTop>>',body.scrollTop)
+                bar.forEach(function(t,index){
+                    if(body.scrollTop >= bg[index].offsetTop){ //특정 bg의 위치에 왔을 때 바뀌는 것.
+                        for(let j of bar){j.classList.remove('active')} // 모든 bar의 active를 remove로 제거를 하고
+                        t.classList.add('active') // 매개변수에 해당되는 요소만 active값으로 적용을 해라.
+                    }
+                })
+            })
+            const mouseImg = document.querySelector('#mouse')
+            console.log(mouseImg)
+            // 마우스 움질일 때 이벤트
+            window.addEventListener('mousemove',function(e){ //매개변수 e에 정보가 자동으로 담긴다.
+                // console.log(e)
+                mouseImg.style.left = `${e.clientX}px`
+                mouseImg.style.top = `${e.clientY}px`
+            })
+            //clientX,Y = 웹 브라우저 내에서 마우스를 X축과 Y축으로 얼만큼 움직였느냐
+    </script>
+</body>
+</html>
